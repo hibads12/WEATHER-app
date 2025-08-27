@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background:rgb(50, 113, 196);
+  color: #fff;
+}
+main {
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  width: auto;
+  height: 90vh;
+  margin: 8px;
+}
+
+/* --- Header search bar --- */
+header {
+  display: flex;
+  margin-top: 10px;
+  padding: 10px;
+  gap: 8px;
+}
+
+header input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+
+header button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background: #0052d4;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+header button:hover {
+  background: #4364f7;
+}
+
+/* --- Image style --- */
+main img {
+  width: auto;
+  height: 400px;
+  margin: auto auto;
+  display: block;
+}
+
+/* --- Headings --- */
+main h1 {
+  font-size: 4rem;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+main h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+/* Smartphones (max-width: 600px) */
+@media (max-width: 600px) {
+  header {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  header input {
+    flex: 1;   
+    font-size: 0.9rem;
+  }
+
+  header button {
+    flex: 0 0 auto;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Tablets (max 900px) */
+@media (max-width: 900px) {
+  main h1 {
+    font-size: 3rem;
+  }
+
+  main img {
+    height: 300px;
+  }
+
+  header input {
+    font-size: 0.9rem;
+  }
+
+  header button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+.hidden {
+  display: none !important;
+}
