@@ -3,8 +3,7 @@ const API_KEY = "7243524df7ed8da4bf299a49a0c434f2";
 const inputSearch = document.getElementById("input-search");
 const btn = document.getElementById("btn");
 const weather = document.getElementById("weather");
-const header = document.querySelector('header');
-const main = document.querySelector('main');
+const main = document.querySelector("main");
 
 // Function to fetch weather data from OpenWeather API
 async function fetchweatherdara(city) {
@@ -12,6 +11,7 @@ async function fetchweatherdara(city) {
   try {
     const response = await fetch(apiurl);
     const data = await response.json();
+     console.log(data);
     if (data.cod !== 200) {
       weather.innerHTML = "No weather found";
       return;
@@ -25,30 +25,31 @@ async function fetchweatherdara(city) {
 // Function to display weather data in the page
 function showweather(data) {
   main.innerHTML = `
-     <h3>${data.name}, ${data.sys.country}</h3>
+  <h3 class="h3">${data.name}, ${data.sys.country}</h3>
+  <div class="weather-card">
         <p>🌡️ Temperature: ${data.main.temp} °C</p>
         <p>☁️ Weather: ${data.weather[0].description}</p>
-        <p>💨 Wind: ${data.wind.speed} m/s</p>
+        <p>💨 Wind: ${data.wind.speed} m/s</p></div>
      `;
 }
-// Event listener for the search button
+
 btn.addEventListener("click", async function () {
   const city = inputSearch.value.trim();
-   header.classList.add('hidden');
-  if (city === "") {
-     header.classList.add('hidde');
-    main.classList.add('hidden');
-    weather.innerHTML = "please enter the name of city";
+
+  if (!city) {
+    alert("please enter the name of city");
     return;
   }
+
   const data = await fetchweatherdara(city);
 
   if (data) {
-    main.classList.remove('hidden');
+    main.classList.remove("hidden");
     showweather(data);
-    
+    inputSearch.value = "";
+
   } else {
-    main.classList.add('hidden');
+    main.classList.add("hidden");
     weather.innerHTML = "No weather found";
-  }
+  } 
 });
